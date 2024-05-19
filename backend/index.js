@@ -3,6 +3,7 @@ const dbconnect = require('./db/dbconfig');
 const app = express();
 const port = 3000;
 const path = require('path');
+require('dotenv').config();
 const User = require('./db/models/User');
 const Property = require('./db/models/Property');
 const appointment = require('./db/models/Appointment');
@@ -26,6 +27,9 @@ app.use('/createuser', userRoutes);
 
 const PropertyRoutes = require('./routes/Property');
 app.use('/property',PropertyRoutes);
+
+const loginRoutes = require('./routes/Login');
+app.use('/login', loginRoutes);
 
 // Start the server
 app.listen(port, () => {
