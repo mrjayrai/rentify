@@ -12,6 +12,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+const userRoutes = require('./routes/CreateUser');
+app.use('/createuser', userRoutes);
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
