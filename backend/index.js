@@ -1,5 +1,6 @@
 const express = require('express');
 const dbconnect = require('./db/dbconfig');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 const path = require('path');
@@ -12,7 +13,7 @@ appointment();
 message();
 Property();
 User();
-
+app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 dbconnect();
