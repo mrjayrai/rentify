@@ -31,6 +31,8 @@ app.use('/login', loginRoutes);
 
 const appointmentRoutes = require('./routes/Appoint');
 app.use('/appointments', appointmentRoutes);
+const MessageRoutes = require('./routes/Message');
+app.use('/chat',MessageRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
