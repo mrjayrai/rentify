@@ -56,6 +56,10 @@ const PropertySchema = new mongoose.Schema({
   isactive:{
     type:Boolean,
     required:true,
+  },
+  likecount:{
+    type:Number,
+    default:0,
   }
 });
 
