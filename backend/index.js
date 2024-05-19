@@ -29,6 +29,8 @@ app.use('/property',PropertyRoutes);
 const loginRoutes = require('./routes/Login');
 app.use('/login', loginRoutes);
 
+const appointmentRoutes = require('./routes/Appoint');
+app.use('/appointments', appointmentRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
