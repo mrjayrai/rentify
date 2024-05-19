@@ -2,6 +2,7 @@ const express = require('express');
 const dbconnect = require('./db/dbconfig');
 const app = express();
 const port = 3000;
+const path = require('path');
 const User = require('./db/models/User');
 const Property = require('./db/models/Property');
 const appointment = require('./db/models/Appointment');
