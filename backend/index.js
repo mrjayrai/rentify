@@ -34,6 +34,9 @@ app.use('/appointments', appointmentRoutes);
 const MessageRoutes = require('./routes/Message');
 app.use('/chat',MessageRoutes);
 
+const Chat = require('./routes/Chat');
+app.use('/getchat',Chat);
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
