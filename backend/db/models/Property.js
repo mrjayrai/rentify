@@ -53,6 +53,10 @@ const PropertySchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  isactive:{
+    type:Boolean,
+    required:true,
+  }
 });
 
 const User = mongoose.model('Property', PropertySchema);

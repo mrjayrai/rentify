@@ -21,6 +21,9 @@ app.get('/', (req, res) => {
 const userRoutes = require('./routes/CreateUser');
 app.use('/createuser', userRoutes);
 
+const PropertyRoutes = require('./routes/Property');
+app.use('/property',PropertyRoutes);
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
