@@ -12,12 +12,10 @@ appointment();
 message();
 Property();
 User();
-// Middleware to parse JSON bodies
 
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 dbconnect();
-// Define a route
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
@@ -31,7 +29,7 @@ app.use('/property',PropertyRoutes);
 const loginRoutes = require('./routes/Login');
 app.use('/login', loginRoutes);
 
-// Start the server
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
