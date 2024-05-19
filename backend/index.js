@@ -3,6 +3,12 @@ const dbconnect = require('./db/dbconfig');
 const app = express();
 const port = 3000;
 const User = require('./db/models/User');
+const Property = require('./db/models/Property');
+const appointment = require('./db/models/Appointment');
+const message = require('./db/models/Message');
+appointment();
+message();
+Property();
 User();
 // Middleware to parse JSON bodies
 app.use(express.json());
