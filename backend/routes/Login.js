@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     // Generate JWT token
     const payload = {
       user: {
-        id: user.id
+        id: user
       }
     };
 
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
       { expiresIn: '1h' },
       (err, token) => {
         if (err) throw err;
-        res.json({ token });
+        res.json({ token ,payload});
       }
     );
   } catch (error) {
