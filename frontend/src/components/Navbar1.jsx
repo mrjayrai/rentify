@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import {
   Navbar,
   MobileNav,
@@ -14,6 +15,12 @@ import Login from './Login';
 export default function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
   const [showLogin, setShowLogin] = React.useState(false);
+
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/login'); // Adjust the path as needed
+  };
 
   React.useEffect(() => {
     window.addEventListener(
@@ -83,7 +90,7 @@ export default function NavbarDefault() {
             Rentify
           </Typography>
           <div className="flex items-center gap-x-1">
-            <Button variant="text" size="sm" className="hidden lg:inline-block" onClick={() => setShowLogin(true)}>
+            <Button variant="text" size="sm" className="hidden lg:inline-block" onClick={handleLoginClick} >
               <span>Log In</span>
             </Button>
             <Button variant="gradient" size="sm" className="hidden lg:inline-block">
