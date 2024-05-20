@@ -22,6 +22,10 @@ export default function NavbarDefault() {
     navigate('/login'); // Adjust the path as needed
   };
 
+  const handleHome = () =>{
+    navigate('/');
+  }
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -86,7 +90,7 @@ export default function NavbarDefault() {
     
       <Navbar className="mx-auto max-w-screen-2xl px-4 py-2 lg:px-8 lg:py-4" color="white">
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-          <Typography as="a" href="#" className="mr-4 cursor-pointer py-1.5  text-[30px] font-extrabold">
+          <Typography as="a" href="#" className="mr-4 cursor-pointer py-1.5  text-[30px] font-extrabold" onClick={handleHome}>
             Rentify
           </Typography>
           <div className="flex items-center gap-x-1">
