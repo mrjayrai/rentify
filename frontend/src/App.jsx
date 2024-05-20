@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavbarDefault from './components/Navbar1';
 import AboutRentify from './components/About';
 import Login from './components/Login';
+import Sign from './components/Sign';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AboutRentify />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Sign />} />
         </Routes>
       </div>
     </Router>

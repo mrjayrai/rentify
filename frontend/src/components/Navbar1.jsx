@@ -22,6 +22,10 @@ export default function NavbarDefault() {
     navigate('/login'); // Adjust the path as needed
   };
 
+  const handleSign = () => {
+    navigate('/signup'); // Adjust the path as needed
+  };
+
   const handleHome = () =>{
     navigate('/');
   }
@@ -97,7 +101,7 @@ export default function NavbarDefault() {
             <Button variant="text" size="sm" className="hidden lg:inline-block" onClick={handleLoginClick} >
               <span>Log In</span>
             </Button>
-            <Button variant="gradient" size="sm" className="hidden lg:inline-block">
+            <Button variant="gradient" size="sm" className="hidden lg:inline-block" onClick={handleSign}>
               <span>Sign in</span>
             </Button>
           </div>

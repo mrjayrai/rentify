@@ -1,7 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const handleLoginClick = () => {
+      navigate('/signup'); // Adjust the path as needed
+    };
   return (
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
       <div className="md:w-1/3 max-w-sm">
@@ -32,8 +38,9 @@ const Login = () => {
         <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
           Don&apos;t have an account?{" "}
           <a
-            className="text-red-600 hover:underline hover:underline-offset-4"
-            href="#"
+            className="text-red-600 hover:underline hover:underline-offset-4 cursor-pointer"
+            // href="#"
+            onClick={handleLoginClick}
           >
             Register
           </a>
