@@ -18,11 +18,11 @@ const upload = multer({ storage });
 
 // Route to add a new property
 router.post('/', upload.single('image'), async (req, res) => {
-  const { title, description, price, ptype, userid, address, city, state, country, pincode, isactive } = req.body;
+  const { title, description, price, ptype, userid, address, city, state, country, pincode, isactive,beds,bathroom } = req.body;
   const image = req.file ? req.file.path : null;
 
   try {
-    const property = new Property({ title, description, price, image, ptype, userid, address, city, state, country, pincode, isactive });
+    const property = new Property({ title, description, price, image, ptype, userid, address, city, state, country, pincode, isactive,beds,bathroom });
     await property.save();
     res.status(201).json(property);
   } catch (error) {

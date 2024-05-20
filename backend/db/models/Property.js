@@ -21,6 +21,14 @@ const PropertySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  beds: {
+    type: Number,
+    required: true,
+  },
+  bathroom: {
+    type: Number,
+    required: true,
+  },
   userid:{
     type: String,
     required: true,
