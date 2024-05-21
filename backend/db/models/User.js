@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  likedProperties: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Property' 
+}]
 });
 
 const User = mongoose.model('User', userSchema);
