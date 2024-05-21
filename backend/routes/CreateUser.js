@@ -8,11 +8,16 @@ router.post('/', async (req, res) => {
   const { name, email, password, usertype } = req.body;
   try {
     // Encrypt the password
+    const existingUser = await User.findOne({ email: email });
+    if (existingUser) {
+      const msg = {1:'Duplicate email',res:209}
+      return res.status(209).json(msg);
+    }
     const hashedPassword = crypto.MD5(password).toString();
 
     const user = new User({ name, email, password: hashedPassword, usertype });
     await user.save();
-    res.status(201).json(user);
+    res.status(201).json({ data: user, res: 201 });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
