@@ -23,6 +23,13 @@ export default function Sign() {
       navigate('/login'); // Adjust the path as needed
     };
 
+    const reset = ()=>{
+      setname('');
+      setemail('');
+      setpass('');
+      setty('');
+    }
+
     const handleSubmit = async(event) =>{
       event.preventDefault(); 
       // console.log(email);
@@ -50,7 +57,16 @@ export default function Sign() {
 
         if(res.ok){
           const data = await res.json();
-          console.log(data);
+          // console.log(data.res);
+          if(data.res  == 209){
+            alert("Email already exists!!!");
+            reset();
+            return;
+          }
+          if(data.res == 201){
+            alert("User Created Successfully");
+            navigate('/login');
+          }
         }
       }
 
@@ -112,6 +128,7 @@ export default function Sign() {
           value={usertype}
           onChange={(e) => setty(e.target.value)}
           >
+        <option value=''></option>
         <option value='0'>Buyer</option>
         <option value='1'>Seller</option>
       </select>

@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     // Check if user exists
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+      return res.status(206).json({ message: 'Invalid credentials' ,res:205});
     }
 
     // Hash the provided password with MD5
@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 
     // Compare hashed passwords
     if (hashedPassword !== user.password) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+      return res.status(206).json({ message: 'Invalid credentials',res:205 });
     }
 
     // Generate JWT token
@@ -36,7 +36,8 @@ router.post('/', async (req, res) => {
       { expiresIn: '1h' },
       (err, token) => {
         if (err) throw err;
-        res.json({ token ,payload});
+        // res.json({ token ,payload,res:400});
+        res.status(201).json({ token, payload, res: 201 });
       }
     );
   } catch (error) {

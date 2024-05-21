@@ -30,7 +30,15 @@ const Login = () => {
 
       if(res.ok){
         const data = await res.json();
-        console.log(data);
+        // console.log(data.res);
+        if(data.res == 201){
+          alert("Login Successfull");
+          return;
+        }
+        if(data.res == 205){
+          alert("Invalid Credential");
+          return;
+        }
       }
      
   };
